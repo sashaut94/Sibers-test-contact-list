@@ -11,14 +11,24 @@ const ContactsBook = props => {
   }, [fetchContacts])
 
   return <div className={classes.ContactsBook}>
-    <h1>
-      Книга контактов
-    </h1>
+    {
+      props.contacts
+        ? props.contacts.map(contact => <img
+          width={200}
+          height={200}
+          src={contact.avatar}
+          alt="avatar"/>)
+        : <p>
+          ничего нет
+        </p>
+    }
   </div>
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    contacts: state.contacts
+  }
 }
 
 function mapDispatchToProps(dispatch) {
