@@ -1,0 +1,37 @@
+.Header {
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media(min-width: 1200px) {
+    justify-content: space-between;
+  }
+}
+
+.found {
+  margin: 15px 20px 0;
+
+  @media(min-width: 778px) {
+    margin-top: 0;
+  }
+}
+
+.buttons {
+  margin: 15px 0 0;
+  display: flex;
+
+
+  @media(min-width: 366px) {
+    margin: 10px 20px 0;
+  }
+
+  @media(min-width: 618px) {
+    margin-top: 0;
+  }
+}
+
+.addButton {
+  margin-left: 15px;
+}

@@ -1,0 +1,49 @@
+@import '../../../variables';
+
+.ContactOption {
+  margin: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 22px;
+  justify-content: center;
+  word-wrap: break-word;
+
+  @media(min-width: $desktop-width) {
+    justify-content: flex-start;
+  }
+}
+
+.description {
+  text-transform: uppercase;
+  color: #399EFC;
+  margin-right: 10px;
+  word-wrap: inherit;
+
+  @media(min-width: $tablet-width) {
+  }
+}
+
+.phone, .company {
+  flex-direction: column;
+
+  @media(min-width: $desktop-width) {
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  transition: .5s;
+  word-break: break-word;
+
+  &:hover {
+    text-decoration: underline;
+    color: #399efc;
+    cursor: pointer;
+  }
+}
+
+.text {
+  word-break: break-word;
+}

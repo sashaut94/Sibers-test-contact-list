@@ -1,0 +1,49 @@
+.FavouriteButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.favourite {
+  color: gold;
+  transition: .3s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.notFavourite {
+  margin: 0;
+  height: 100%;
+
+  &:hover {
+    .common {
+      opacity: 0;
+    }
+
+    .gold {
+      opacity: 1;
+      color: gold;
+    }
+  }
+}
+
+.common, .gold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .5s;
+}
+
+.common {
+  opacity: 1;
+}
+
+.gold {
+  opacity: 0;
+}

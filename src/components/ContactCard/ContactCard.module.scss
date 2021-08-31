@@ -1,0 +1,43 @@
+@import '../../variables';
+
+.ContactCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 15px 10px;
+  cursor: pointer;
+  align-items: center;
+  border-top: 2px solid #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+  margin-top: -2px;
+  transition: .3s;
+
+  &:hover {
+    background-color: rgba(#399efc, 0.1);
+  }
+
+  @media(min-width: $tablet-width) {
+    justify-content: space-between;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon {
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+.info {
+  flex-grow: 1;
+}

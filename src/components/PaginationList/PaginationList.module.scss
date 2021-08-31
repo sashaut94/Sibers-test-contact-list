@@ -1,0 +1,17 @@
+@import '../../variables';
+
+.PaginationList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 10px;
+  flex-direction: column;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+  }
+}
+
+.numbers {
+
+}

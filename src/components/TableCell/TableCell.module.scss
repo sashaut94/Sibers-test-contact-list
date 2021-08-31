@@ -1,0 +1,59 @@
+@import '../../variables';
+
+.TableCell {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: wrap;
+  margin-top: 5px;
+
+  @media(min-width: $desktop-width) {
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.avatar {
+  @media(min-width: $desktop-width) {
+    width: 10%;
+  }
+}
+
+.contactInfo {
+  @media(min-width: $desktop-width) {
+    width: 30%;
+  }
+}
+
+.address {
+  @media(min-width: $desktop-width) {
+    width: 15%;
+  }
+}
+
+.company {
+  @media(min-width: $desktop-width) {
+    width: 22%;
+  }
+}
+
+.phone {
+  @media(min-width: $desktop-width) {
+    width: 16%;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  @media(min-width: $tablet-width) {
+    width: auto;
+  }
+  @media(min-width: $desktop-width) {
+    width: 7%;
+  }
+}

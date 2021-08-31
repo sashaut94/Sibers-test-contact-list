@@ -8,6 +8,7 @@ import {Provider} from 'react-redux'
 import {applyMiddleware, compose, createStore} from 'redux'
 import {reducer} from './store/reducer'
 import thunk from 'redux-thunk'
+import './animations.scss'
 
 const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
@@ -18,7 +19,7 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 const app = <Provider store={store}>
   <React.StrictMode>
     <App/>
-  </React.StrictMode>,
+  </React.StrictMode>
 </Provider>
 
 ReactDOM.render(

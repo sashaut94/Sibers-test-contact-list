@@ -1,0 +1,20 @@
+@import '../../variables';
+
+.noContacts {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  line-height: 24px;
+
+  @media(min-width: $desktop-width) {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+.list {
+  height: 100%;
+}

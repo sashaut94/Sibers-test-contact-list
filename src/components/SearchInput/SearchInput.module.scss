@@ -1,0 +1,58 @@
+@import '../../variables';
+
+.SearchInput {
+  margin: 0 10px;
+  display: flex;
+  width: 300px;
+
+  @media(min-width: 810px) {
+    margin-top: 0;
+  }
+}
+
+.wrapper {
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  border: 2px solid #399EFC;
+  height: 100%;
+  padding: 0 30px 0 30px;
+  transition: .3s;
+  outline: 2px solid transparent;
+  width: 100%;
+
+  &:focus, &:hover {
+    outline-color: rgba(#399efc, 0.5);
+  }
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #399EFC;
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+.times {
+  right: 5px;
+  transition: 0.3s;
+
+  &:not(:disabled):hover {
+    opacity: 0.5;
+  }
+}
+
+.magnifier {
+  left: 3px;
+}
+

@@ -1,0 +1,39 @@
+@import '../../variables';
+
+.Input {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 5px 0;
+
+  @media(min-width: $tablet-width) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+}
+
+.label {
+  margin: 0;
+  text-transform: uppercase;
+  color: #399EFC;
+
+  @media(min-width: $tablet-width) {
+    margin-right: 40px;
+  }
+}
+
+.input {
+  border: 2px solid #399EFC;
+  height: 100%;
+  padding: 5px;
+  transition: .3s;
+  outline: 2px solid transparent;
+
+  @media(min-width: $tablet-width) {
+    width: 240px;
+  }
+
+  &:focus, &:hover {
+    outline-color: rgba(#399efc, 0.5);
+  }
+}

@@ -1,5 +1,16 @@
-import {SET_CONTACTS} from './actionsTypes'
+import {
+  SET_CONTACTS,
+  SET_CURRENT_PAGE,
+  SET_EDITABLE_CONTACT_ID,
+  SET_FORM_CONTROLS,
+  SET_FORM_STATE,
+  SET_TYPE_OF_CONTACTS,
+  SET_SEARCH,
+  SET_PER_PAGE_STATE,
+  SET_PER_PAGE_AMOUNT
+} from './actionsTypes'
 import axios from 'axios'
+import {fillFormControls, getRandom} from '../functions'
 
 const avatars = [
   // eslint-disable-next-line no-useless-escape
@@ -45,21 +56,165 @@ export function fetchContacts() {
   return async dispatch => {
     const contactsFromStorage = localStorage.getItem('contacts')
     if (contactsFromStorage) {
-      console.log('from storage')
-      dispatch(setContacts(JSON.parse(contactsFromStorage)))
+      const contacts = JSON.parse(contactsFromStorage)
+      dispatch(setContacts(contacts))
     } else {
       try {
         const response = await axios.get('https://demo.sibers.com/users')
         const contactsWithAvatar = response.data.map(item => ({
           ...item,
-          avatar: avatars[Math.floor(Math.random() * (14 + 1))]
+          avatar: avatars[getRandom(0, 14)]
         }))
-        localStorage.setItem('contacts', JSON.stringify(contactsWithAvatar))
-        console.log('from server')
-        dispatch(setContacts(contactsWithAvatar))
+        dispatch(updateContacts(contactsWithAvatar))
       } catch (e) {
         console.log(e)
       }
     }
+  }
+}
+
+export function toggleFavourite(contacts, id) {
+  return dispatch => {
+    const newContacts = [...contacts]
+    const current = newContacts.find(item => item.id === id)
+    const index = contacts.indexOf(current)
+    const newCurrent = {...current}
+    newCurrent.favorite = !newCurrent.favorite
+    newContacts[index] = newCurrent
+    dispatch(updateContacts(newContacts))
+  }
+}
+
+export function removeContact(contacts, id) {
+  return dispatch => {
+    const newContacts = contacts.filter(contact => contact.id !== id)
+    dispatch(updateContacts(newContacts))
+  }
+}
+
+export function updateContacts(item) {
+  return dispatch => {
+    localStorage.setItem('contacts', JSON.stringify(item))
+    dispatch(setContacts(item))
+  }
+}
+
+export function setCurrentPage(number) {
+  return {
+    type: SET_CURRENT_PAGE,
+    number
+  }
+}
+
+export function setTypeOfContacts(type) {
+  return {
+    type: SET_TYPE_OF_CONTACTS,
+    payload: type
+  }
+}
+
+export function setFormState(state) {
+  return {
+    type: SET_FORM_STATE,
+    state
+  }
+}
+
+export function setFormControls(controls) {
+  return {
+    type: SET_FORM_CONTROLS,
+    controls
+  }
+}
+
+export function changeInput(e, controls, index) {
+  return dispatch => {
+    const newControls = [...controls]
+    const newControl = {...newControls[index]}
+    newControl.value = e.target.value
+    newControls[index] = newControl
+    dispatch(setFormControls(newControls))
+  }
+}
+
+export function fillFormControlsFromCard(controls, contact) {
+  return dispatch => {
+    const newControls = [...controls]
+    for (let i = 0; i < controls.length; i++) {
+      const newControl = {...newControls[i]}
+      newControl.value = contact[newControl.label]
+      newControls[i] = newControl
+    }
+    dispatch(setFormControls(newControls))
+    dispatch(setEditableContactId(contact.id))
+    dispatch(setFormState(true))
+  }
+}
+
+export function setEditableContactId(id) {
+  return {
+    type: SET_EDITABLE_CONTACT_ID,
+    id
+  }
+}
+
+export function editContact(controls, id) {
+  return dispatch => {
+    let current, index
+    const newContacts = JSON.parse(localStorage.getItem('contacts'))
+    if (id !== null) {
+      current = newContacts.find(contact => contact.id === id)
+      index = newContacts.indexOf(current)
+    } else {
+      current = {}
+      current.company = {}
+      current.address = {}
+      current.avatar = avatars[getRandom(0, 14)]
+      index = newContacts.length
+      current.id = index
+    }
+    for (let i = 0; i < controls.length; i++) {
+      if (controls[i].label !== 'company' && controls[i].label !== 'city' && controls[i].label !== 'state' && controls[i].label !== 'zipcode') {
+        current[controls[i].label] = controls[i].value
+      } else {
+        if (controls[i].label === 'company') {
+          current['company'].name = controls[i].value
+        } else {
+          current['address'][controls[i].label] = controls[i].value
+        }
+      }
+    }
+    newContacts[index] = current
+    dispatch(updateContacts(newContacts))
+    dispatch(setFormState(false))
+  }
+}
+
+export function clearFormControls() {
+  return dispatch => {
+    const newControls = fillFormControls()
+    dispatch(setFormControls(newControls))
+    dispatch(setEditableContactId(null))
+  }
+}
+
+export function setSearch(value) {
+  return {
+    type: SET_SEARCH,
+    value
+  }
+}
+
+export function setPerPageState(state) {
+  return {
+    type: SET_PER_PAGE_STATE,
+    state: !state
+  }
+}
+
+export function setPerPageAmount(number) {
+  return {
+    type: SET_PER_PAGE_AMOUNT,
+    number
   }
 }
