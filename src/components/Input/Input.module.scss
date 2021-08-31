@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 0 5px 0;
+  flex-wrap: wrap;
 
   @media(min-width: $tablet-width) {
     flex-direction: row;
@@ -36,4 +37,15 @@
   &:focus, &:hover {
     outline-color: rgba(#399efc, 0.5);
   }
+}
+
+.invalid {
+  border-color: red;
+  outline: none;
+}
+
+.error {
+  margin-top: 5px;
+  color: red;
+  width: 100%;
 }

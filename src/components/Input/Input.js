@@ -4,6 +4,9 @@ import {connect} from 'react-redux'
 import {changeInput} from '../../store/actionCreator'
 
 const Input = props => {
+  const isError = !props.isValid && props.touched
+  const cls = [classes.input]
+  if (isError) cls.push(classes.invalid)
   return (
     <div className={classes.Input}>
       <p className={classes.label}>
@@ -11,12 +14,18 @@ const Input = props => {
       </p>
 
       <input
-        className={classes.input}
+        className={cls.join(' ')}
         type="text"
         placeholder={props.placeholder}
         value={props.value}
         onChange={(e) => props.changeInput(e, props.formControls, props.index)}
       />
+
+      {
+        isError && <span className={classes.error}>
+          the field cannot be empty
+      </span>
+      }
     </div>
   )
 }

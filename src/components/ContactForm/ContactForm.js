@@ -6,6 +6,7 @@ import {Button} from '../Button/Button'
 import {editContact, setFormState} from '../../store/actionCreator'
 
 const ContactForm = props => {
+  const isFormValid = props.formControls.some(control => control.isValid === false)
   return (
     <section className={classes.ContactForm}>
       <h2 className={classes.title}>
@@ -29,6 +30,8 @@ const ContactForm = props => {
               placeholder={`Enter ${control.label}`}
               value={control.value}
               index={index}
+              isValid={control.isValid}
+              touched={control.touched}
             />
           ))
         }
@@ -40,6 +43,7 @@ const ContactForm = props => {
           onClick={() => {
             props.editContact(props.formControls, props.editableContactId)
           }}
+          disabled={isFormValid}
         >
           Save changes
         </Button>

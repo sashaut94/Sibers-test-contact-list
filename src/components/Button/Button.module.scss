@@ -60,6 +60,10 @@
   @media(min-width: $tablet-width) {
     align-self: flex-end;
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .nextPage {

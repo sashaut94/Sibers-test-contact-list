@@ -4,7 +4,9 @@ export function fillFormControls() {
   return labels.map((label, index) => ({
     id: index + 1,
     label: label,
-    value: ''
+    value: '',
+    isValid: false,
+    touched: false
   }))
 }
 

@@ -131,6 +131,8 @@ export function changeInput(e, controls, index) {
   return dispatch => {
     const newControls = [...controls]
     const newControl = {...newControls[index]}
+    newControl.touched = true
+    newControl.isValid = e.target.value !== ''
     newControl.value = e.target.value
     newControls[index] = newControl
     dispatch(setFormControls(newControls))
