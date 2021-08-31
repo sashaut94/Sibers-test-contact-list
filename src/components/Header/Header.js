@@ -32,6 +32,7 @@ const Header = props => {
                   props.setCurrentPage(1)
                 }}
                 disabled={isActive}
+                block='favourite'
               >
                 {
                   button.value

@@ -44,6 +44,16 @@
   @media(min-width: 911px) {
     margin-top: 0;
   }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.favourite:not(.active):hover {
+  background-color: #399efc;
+  color: white;
+  opacity: 0.8;
 }
 
 .pagination {
@@ -93,5 +103,12 @@
 
   @media (min-width: $tablet-width) {
     margin: 0 0 0 30px;
+  }
+}
+
+
+.end, .begin {
+  &:hover {
+    opacity: 0.5;
   }
 }
