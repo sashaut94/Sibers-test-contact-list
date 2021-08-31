@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sibers/static/css/main.7cfcca1c.chunk.css",
+    "main.js": "/sibers/static/js/main.05cf0fc9.chunk.js",
+    "main.js.map": "/sibers/static/js/main.05cf0fc9.chunk.js.map",
+    "runtime-main.js": "/sibers/static/js/runtime-main.a0f47ed3.js",
+    "runtime-main.js.map": "/sibers/static/js/runtime-main.a0f47ed3.js.map",
+    "static/css/2.679831fc.chunk.css": "/sibers/static/css/2.679831fc.chunk.css",
+    "static/js/2.bcd177e4.chunk.js": "/sibers/static/js/2.bcd177e4.chunk.js",
+    "static/js/2.bcd177e4.chunk.js.map": "/sibers/static/js/2.bcd177e4.chunk.js.map",
+    "static/js/3.bed38b96.chunk.js": "/sibers/static/js/3.bed38b96.chunk.js",
+    "static/js/3.bed38b96.chunk.js.map": "/sibers/static/js/3.bed38b96.chunk.js.map",
+    "index.html": "/sibers/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/sibers/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.7cfcca1c.chunk.css.map": "/sibers/static/css/main.7cfcca1c.chunk.css.map",
+    "static/js/2.bcd177e4.chunk.js.LICENSE.txt": "/sibers/static/js/2.bcd177e4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0f47ed3.js",
+    "static/css/2.679831fc.chunk.css",
+    "static/js/2.bcd177e4.chunk.js",
+    "static/css/main.7cfcca1c.chunk.css",
+    "static/js/main.05cf0fc9.chunk.js"
+  ]
+}
